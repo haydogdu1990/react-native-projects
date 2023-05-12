@@ -1,4 +1,4 @@
-# Sample Snack app
+# News app
 
 [Live view](https://snack.expo.dev/@haydogdu1990/news-app)
 
