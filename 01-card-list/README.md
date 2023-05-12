@@ -1,4 +1,4 @@
-# Sample Snack app
+# Card List app
 
 [Live view](https://snack.expo.dev/@haydogdu1990/card-list)
 
