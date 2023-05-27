@@ -1,14 +1,33 @@
 import React from "react";
-import { SafeAreaView, View, Text } from "react-native";
+import { View, Text, Image } from "react-native";
 
-import styles from "./Detail.style"
+import Loading from "../../components/Loading";
+import Error from "../../components/Error";
 
-function Detail(){
-    return(
-        <SafeAreaView style={styles.container}>
-            <Text>Detail</Text>
-        </SafeAreaView>
-    )
+import useFetch from "../../hooks/useFetch/useFetch";
+import { API_URL } from "react-native-dotenv";
+
+import styles from "./Detail.style";
+
+function Detail({ route }) {
+  const { id } = route.params;
+  const { data, loading, error } = useFetch(API_URL + `/${id}`);
+
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    return <Error />;
+  }
+
+  return (
+    <View style={styles.container}>
+      <Image style={styles.image} source={{ uri: data.image }} />
+      <Text style={styles.title}>{data.title}</Text>
+      <Text style={styles.desc}>{data.description}</Text>
+      <Text style={styles.price}>${data.price}</Text>
+    </View>
+  );
 }
 
 export default Detail;
