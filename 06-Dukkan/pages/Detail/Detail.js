@@ -5,13 +5,13 @@ import Loading from "../../components/Loading";
 import Error from "../../components/Error";
 
 import useFetch from "../../hooks/useFetch/useFetch";
-import { API_URL } from "react-native-dotenv";
+import { API_PRODUCT_URL } from "react-native-dotenv";
 
 import styles from "./Detail.style";
 
 function Detail({ route }) {
   const { id } = route.params;
-  const { data, loading, error } = useFetch(API_URL + `/${id}`);
+  const { data, loading, error } = useFetch(API_PRODUCT_URL + `/${id}`);
 
   if (loading) {
     return <Loading />;
